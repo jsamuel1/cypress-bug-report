@@ -1,0 +1,1 @@
+Just execute in your terminal `make run`
