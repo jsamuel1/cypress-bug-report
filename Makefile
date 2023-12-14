@@ -22,11 +22,11 @@ run-official:
 it: build-image
 	docker run --rm -it cypress-m1-bug bash 
 
-it8: build-image
+it8: 
 	docker build . -f rhel8/Dockerfile -t cypress-m1-bug-rhel8 
 	docker run --rm -it cypress-m1-bug-rhel8 bash 
 
-it9: build-image
+it9: 
 	docker build . -f rhel9/Dockerfile -t cypress-m1-bug-rhel9 
 	docker run --rm -it cypress-m1-bug-rhel9 bash 
 
