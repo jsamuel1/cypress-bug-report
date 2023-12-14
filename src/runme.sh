@@ -1,8 +1,10 @@
 #!/bin/bash
 #
-npm install 
+
+source ~/.nvm/nvm.sh
+
 npx cypress install
 
-neofetch
+npx neofetch
 
 npx cypress run --spec cypress/e2e/spec.cy.js

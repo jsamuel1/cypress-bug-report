@@ -1,13 +1,15 @@
 FROM centos:centos7
-# RUN yum -y update; yum clean all
+# Note - ulimit statements are to fix performance issues with centos7 in docker
 RUN ulimit -n 1024000 && yum -y install epel-release
+# deps from Cypress centos7 builder image
+RUN ulimit -n 1024000 && yum -y install centos-release-scl curl python3 make atk-devel atk java-atk-wrapper at-spi2-atk gtk3 libXt libdrm mesa-libgbm Xvfb && yum -y install devtoolset-8-gcc devtoolset-8-gcc-c++
+ 
 RUN ulimit -n 1024000 && yum -y install dnf
 RUN ulimit -n 1024000 && dnf -y install dnf-plugins-core
 
 RUN ulimit -n 1024000 && dnf -y install xorg-x11-server-Xvfb gtk2-devel gtk3-devel libnotify-devel GConf2 nss libXScrnSaver alsa-lib
-#RUN ulimit -n 1024000 && dnf -y copr enable konimex/neofetch
-#RUN ulimit -n 1024000 && dnf -y install neofetch neovim
 
+# fom Cypress centos7 builder image
 RUN echo >> /etc/profile.d/devtoolset-8.sh 'source scl_source enable devtoolset-8'
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 RUN echo >> /etc/profile.d/nvm.sh 'source ~/.nvm/nvm.sh'
@@ -21,4 +23,4 @@ ADD ./src /app
 WORKDIR /app
 RUN source ~/.nvm/nvm.sh && npm -y install
 
-CMD [ 'runme.sh' ]
+CMD [ './runme.sh' ]

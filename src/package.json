@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/DmytroPolavis/cypress-bug-report#readme",
   "dependencies": {
-    "cypress": "^13.6.0"
+    "cypress": "^13.6.0",
+    "neofetch": "^7.1.0"
   }
 }
