@@ -1,6 +1,9 @@
 .PHONY: run
 run: build-image run-container
 
+.PHONY: official
+official: build-official run-official
+
 .PHONY: build-image
 build-image:
 	docker build . -f centos7/Dockerfile -t cypress-m1-bug
@@ -13,7 +16,7 @@ run-container:
 	docker run --rm -i cypress-m1-bug 
 
 .PHONY: run-official
-run-official: build-official
+run-official: 
 	docker run --rm -i cypress-m1-bug-cypress
 
 it: build-image
