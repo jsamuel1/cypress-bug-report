@@ -10,10 +10,10 @@ build-image:
 
 .PHONY: run-container
 run-container:
-	docker run --rm -i --mount type=bind,src=./,dst=/app cypress-m1-bug bash -c "npm install && ./node_modules/.bin/cypress run --spec cypress/e2e/spec.cy.js"
+	docker run --rm -i cypress-m1-bug bash -c "npm install && ./node_modules/.bin/cypress run --spec cypress/e2e/spec.cy.js"
 
 it: build-image
-	docker run --rm -it --mount type=bind,src=./,dst=/app cypress-m1-bug bash 
+	docker run --rm -it cypress-m1-bug bash 
 
 it8: build-image
 	docker run --rm -it --mount type=bind,src=./,dst=/app cypress-m1-bug-rhel8 bash 
