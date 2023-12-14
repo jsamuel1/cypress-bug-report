@@ -5,5 +5,5 @@ For RHEL8/9/Cypress tests, run:
 * * You may need to register your RHEL subscription, if not running on a RHEL host
 * `runme.sh` will execute the test.
 
-Original test from DmytroPolavis/cypress-bug-report :
+Original test (forked/modified from DmytroPolavis/cypress-bug-report):
 * Just execute in your terminal `make run`
