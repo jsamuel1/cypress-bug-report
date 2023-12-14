@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 
-source ~/.nvm/nvm.sh
+[ -f ~/.nvm/nvm.sh ] && source ~/.nvm/nvm.sh
 
 npx cypress install
 

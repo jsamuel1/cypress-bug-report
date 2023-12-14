@@ -23,4 +23,4 @@ ADD ./src /app
 WORKDIR /app
 RUN source ~/.nvm/nvm.sh && npm -y install
 
-CMD [ './runme.sh' ]
+CMD [ "bash", "-c", "./runme.sh" ]
