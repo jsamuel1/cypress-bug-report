@@ -6,7 +6,7 @@ official: build-official run-official
 
 .PHONY: build-image
 build-image:
-	docker build . -f centos7/Dockerfile -t cypress-m1-bug
+	docker build --ulimit nofile=1024:1024 . -f centos7/Dockerfile -t cypress-m1-bug
 
 build-official:
 	docker build . -f cypress-dockerimg/Dockerfile -t cypress-m1-bug-cypress 
